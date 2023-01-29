@@ -1,25 +1,26 @@
-var topKFrequent = function(words, k) {
-    var map = {};
-    for (var i = 0; i < words.length; i++) {
-      var word = words[i];
-      if (!map[word]) {
-        map[word] = 0;
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+    const int n = words.size();
+    vector<string> ans;
+    vector<vector<string>> bucket(n + 1);
+    unordered_map<string, int> count;
+
+    for (const string& word : words)
+      ++count[word];
+
+    for (const auto& [word, freq] : count)
+      bucket[freq].push_back(word);
+
+    for (int freq = n; freq > 0; --freq) {
+      sort(begin(bucket[freq]), end(bucket[freq]));
+      for (const string& word : bucket[freq]) {
+        ans.push_back(word);
+        if (ans.size() == k)
+          return ans;
       }
-      map[word]++;
     }
-    var arr = [];
-    for (var word in map) {
-      arr.push([word, map[word]]);
+
+    throw;    
     }
-    arr.sort(function(a, b) {
-      if (a[1] === b[1]) {
-        return a[0].localeCompare(b[0]);
-      }
-      return b[1] - a[1];
-    });
-    var result = [];
-    for (var i = 0; i < k; i++) {
-      result.push(arr[i][0]);
-    }
-    return result;
-  };
+};
