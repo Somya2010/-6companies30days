@@ -5,7 +5,7 @@ class BSTIterator {
   }
 
   int peek() {
-    return stack.top()->val;
+    return stack.top()->val;               
   }
 
   void next() {
