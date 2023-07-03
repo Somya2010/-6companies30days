@@ -1,7 +1,7 @@
 class BSTIterator {
  public:
   BSTIterator(TreeNode* root) {
-    pushLeftsUntilNull(root);  SOMYA
+    pushLeftsUntilNull(root);
   }
 
   int peek() {
