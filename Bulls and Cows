@@ -1,5 +1,5 @@
 class Solution {
-public:
+public: 
     string getHint(string secret, string guess) {
         int bulls = 0;
         int cows = 0;
