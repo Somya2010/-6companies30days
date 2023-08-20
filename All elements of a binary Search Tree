@@ -2,7 +2,7 @@ class BSTIterator {
  public: 
   BSTIterator(TreeNode* root) {
     pushLeftsUntilNull(root); 
-  }
+  } 
 
   int peek() {
     return stack.top()->val;                                  
