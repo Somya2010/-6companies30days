@@ -5,7 +5,7 @@ public:
         vector<int> dist(n, MAX);
         
         //base case
-        dist[src] = 0;
+        dist[src] = 0; 
         for(vector<int>& flight : flights){
             //whether use flight[0] as middle point
             if(flight[0] == src)
